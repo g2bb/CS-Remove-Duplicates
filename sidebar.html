@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_top">
+        <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
+        <style>
+
+            .UITitle{
+                margin-bottom: -15px !important;
+            } 
+            #UserInput{
+                width: 100%;
+                margin: 15px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="input">
+            <div class="txtbox">
+                <p class="UITitle">Enter the column title</p>
+                <input type="text" id="UserInput" name="title" placeholder="CaSe SeNsItIvE"><br>
+            </div>
+            <div class="buttons">
+                <button class="blue" onclick="HRun()"> Highlight</button>
+                <button class="blue" onclick="RRun()"> Remove</button>
+            </div>
+        </div>      
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            function HRun(value){
+                google.script.run.highlight($('#UserInput').val());
+                setTimeout(function(){
+                    google.script.host.close(); 
+                }, 1000);
+            }
+            function RRun(){
+                google.script.run.remove($('#UserInput').val());
+                setTimeout(function(){
+                    google.script.host.close(); 
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>
